@@ -1,45 +1,66 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 
-export default function Navbar() {
+interface NavbarComponentProps {}
+
+export const NavbarComponent: React.FC<NavbarComponentProps> = (
+  props: NavbarComponentProps
+) => {
   const [nav, setNave] = useState(false);
+  const [shadow, setShadow] = useState(false);
 
   const handleNav = () => {
     setNave(!nav);
   };
 
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
+  }, []);
   return (
-    <div className="fixed w-full h-20 shadow-xl z-[100]">
+    <div
+      className={
+        shadow
+          ? "fixed w-full h-20 shadow-xl z-[100]"
+          : "fixed w-full h-20 z-[100]"
+      }
+    >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-        <Image
-          src="/assets/payload-it.png"
-          alt="payload-it-logo"
-          width="70"
-          height="50"
-        />
+        <Link href="/">
+          <Image
+            src="/assets/payload-it.png"
+            alt="payload-it-logo"
+            width="70"
+            height="50"
+          />
+        </Link>
         <div>
           <ul className="hidden md:flex">
             <Link href="/">
               <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
             </Link>
-            <Link href="/">
+            <Link href="/#about">
               <li className="ml-10 text-sm uppercase hover:border-b">About</li>
             </Link>
-            <Link href="/">
-              <li className="ml-10 text-sm uppercase hover:border-b">
-                Services
-              </li>
+            <Link href="/#skills">
+              <li className="ml-10 text-sm uppercase hover:border-b">Skills</li>
             </Link>
-            <Link href="/">
+            <Link href="/#projects">
               <li className="ml-10 text-sm uppercase hover:border-b">
                 Projects
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/#contact">
               <li className="ml-10 text-sm uppercase hover:border-b">
                 Contact
               </li>
@@ -90,7 +111,7 @@ export default function Navbar() {
                 <li className="py-4 text-sm">About</li>
               </Link>
               <Link href="/">
-                <li className="py-4 text-sm">Services</li>
+                <li className="py-4 text-sm">Skills</li>
               </Link>
               <Link href="/">
                 <li className="py-4 text-sm">Projects</li>
@@ -123,4 +144,6 @@ export default function Navbar() {
       </div>
     </div>
   );
-}
+};
+
+export default function Navbar() {}

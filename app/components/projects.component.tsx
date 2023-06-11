@@ -4,7 +4,6 @@ import perfectClick from "../../public/assets/projects/perfectClick.png";
 import news24 from "../../public/assets/projects/news24.png";
 import userManagement from "../../public/assets/projects/userManagement.png";
 import fashionHouse from "../../public/assets/projects/fashion.png";
-
 import { SingleProjectComponent } from "./single-project.component";
 
 interface ProjectsComponentProps {}
@@ -13,7 +12,7 @@ export const ProjectsComponent: React.FC<ProjectsComponentProps> = (
   props: ProjectsComponentProps
 ) => {
   return (
-    <div className="w-full">
+    <div id="projects" className="w-full">
       <div className="max-w-[1240px] mx-auto px-2 py-16">
         <p className="text-xl tracking-widest uppercase text-[#5651e5]">
           Projects

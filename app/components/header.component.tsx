@@ -2,7 +2,11 @@ import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
-export default function Main() {
+interface HeaderComponentProps {}
+
+export const HeaderComponent: React.FC<HeaderComponentProps> = (
+  props: HeaderComponentProps
+) => {
   return (
     <div className="w-full h-screen text-center">
       <div className="max-w-[1248px] w-full h-full mx-auto p-2 flex justify-center items-center">
@@ -37,4 +41,4 @@ export default function Main() {
       </div>
     </div>
   );
-}
+};

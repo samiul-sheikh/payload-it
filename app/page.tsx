@@ -1,17 +1,17 @@
-import Navbar from "./components/Navbar";
-import Main from "./components/Main";
-import About from "./components/About";
-import { Skills } from "./components/Skills";
+import { NavbarComponent } from "./components/navbar.component";
+import { HeaderComponent } from "./components/header.component";
+import { AboutComponent } from "./components/about.component";
+import { SkillsComponent } from "./components/skills.component";
 import { ProjectsComponent } from "./components/projects.component";
 import { ContactComponent } from "./components/contact.component";
 
 export default function Home() {
   return (
     <div>
-      <Navbar />
-      <Main />
-      <About />
-      <Skills />
+      <NavbarComponent />
+      <HeaderComponent />
+      <AboutComponent />
+      <SkillsComponent />
       <ProjectsComponent />
       <ContactComponent />
     </div>
